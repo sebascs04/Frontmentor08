@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ol li::marker {
+    content: '0'counter(list-item)  ' ' ;
+}
+
+@media (min-width:535px) {
+    ol li::marker {
+        content: none;
+    }
+}
+
+@media (min-width:1024px) {
+    ol li::marker {
+        content: '0'counter(list-item)  ' ' ;
+
+    }
+}
+
+#nav:hover {
+    box-shadow: 0 0 0 40px rgba(255,255,255,0.1) ;
+    transition-duration: 200ms;
+    transition-property:'box-shadow'
+}
+
+
+@media (min-width:535px) {
+    #nav:hover {
+        box-shadow: 0 0 0 60px rgba(255,255,255,0.1) ;
+        transition-duration: 200ms;
+        transition-property:'box-shadow'
+    }
+}
+
+@media (min-width:1024px) {
+    #nav:hover {
+        box-shadow: 0 0 0 80px rgba(255,255,255,0.1) ;
+        transition-duration: 200ms;
+        transition-property:'box-shadow'
+    }
+}
