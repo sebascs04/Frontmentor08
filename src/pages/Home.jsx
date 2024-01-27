@@ -25,7 +25,7 @@ export default function Home() {
             </div>
             <Navbar/>
             <hr className='border-[#383B4B] max-desktop:hidden  mt-[46px]   relative ml-[167px] mr-[800px]' />
-            <div className=' flex flex-col desktop:flex-row desktop:justify-around max-desktop:items-center pb-5 mt-[112px] desktop:mt-[251px]'>
+            <div className=' flex tablet:mt-40 flex-col desktop:flex-row desktop:justify-around max-desktop:items-center pb-5 mt-[112px] desktop:mt-[251px]'>
               <div className='text-slate-300 max-desktop:text-center max-desktop:mb-[81px] tablet:w-[450px]'>
                 <p className='text-[16px] desktop:text-start text-[#D0D6F9] font-con tracking-[2.7px] tablet:tracking-[3.38px] tablet:text-[20px] desktop:text-[28px]  desktop:tracking-[4.72px]'>SO, YOU WANT TO TRAVEL TO</p>
                 <p className='text-white my-4 text-[80px] font-belle tablet:text-[150px] tablet:leading-[150px] tablet:my-6 desktop:[150px]'>SPACE</p>

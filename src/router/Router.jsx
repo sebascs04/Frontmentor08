@@ -4,9 +4,10 @@ import Home from '../pages/Home'
 import Destination from '../pages/Destination'
 import Crew from '../pages/Crew'
 import Tech from '../pages/Tech'
+import { createHashRouter } from 'react-router-dom';
 
 
-export const router = createBrowserRouter([
+export const router = createHashRouter([
     {
       path: "/",
       element: <Layout />,

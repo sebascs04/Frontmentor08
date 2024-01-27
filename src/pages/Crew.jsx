@@ -4,6 +4,10 @@ import {motion } from 'framer-motion'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../components/icons/Logo';
+import douglas from '../assets/crew/image-douglas-hurley.png'
+import mark from '../assets/crew/image-mark-shuttleworth.png'
+import victor from '../assets/crew/image-victor-glover.png'
+import anousheh from '../assets/crew/image-anousheh-ansari.png'
 
 export default function Crew() {
     const [page,setPage] = useState(0)
@@ -20,22 +24,47 @@ export default function Crew() {
     };
 
     function crew(e) {
-        const id = e.target.id;
-        switch (id) {
+        const oval = e.target.id
+        switch (oval) {
             case 1:
-                setPage(id)
+                setPage(oval)
+                console.log(page);
                 break;
             case 2:
-                setPage(id)
+                setPage(oval)
+                console.log(page);
                 break;
             case 3:
-                setPage(id)
+                setPage(oval)
+                console.log(page);
                 break;
             default:
-                setPage(id)
+                setPage(oval)
+                console.log(page);
                 break;
         }
     }
+    
+
+    function img() {
+        console.log(page);
+        if (page == 1) {
+            console.log(mark);
+            return mark
+        }
+        if (page == 2) {
+            console.log(victor);
+            return victor
+        }
+        if (page == 3) {
+            console.log(victor);
+            return anousheh
+        }
+        if (page == 0) {
+            console.log(victor);
+            return douglas
+        }
+     }
     
     return (
         <motion.div 
@@ -63,7 +92,7 @@ export default function Crew() {
                                 initial='initial'
                                 animate='in'
                                 className="border-b border-[#383B4B] w-[90%] flex justify-center tablet:border-0">
-                                <img src={datas.crew[page].images.png} className=' h-[223px] tablet:h-[572px] desktop:h-[743px]  tablet:max-w-min transition-all duration-1000'  alt={datas.crew[page].name} />
+                                <img src={img()} className=' h-[223px] tablet:h-[572px] desktop:h-[743px]  tablet:max-w-min transition-all duration-1000'  alt={datas.crew[page].name} />
                             </motion.div>
                         </center>
                         <div className='tablet:flex tablet:flex-col-reverse  desktop:h-[500px] desktop:mt-[70px] desktop:ml-[252px] '>

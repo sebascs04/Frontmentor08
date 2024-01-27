@@ -4,6 +4,12 @@ import {motion } from 'framer-motion'
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../components/icons/Logo';
+import vehicleportrait from '../assets/technology/image-launch-vehicle-portrait.jpg'
+import spaceportportrait from '../assets/technology/image-spaceport-portrait.jpg'
+import capsuleportrait from '../assets/technology/image-space-capsule-portrait.jpg'
+import vehiclelandscape from '../assets/technology/image-launch-vehicle-landscape.jpg'
+import spaceportlandscape from '../assets/technology/image-spaceport-landscape.jpg'
+import capsulelandscape from '../assets/technology/image-space-capsule-landscape.jpg'
 
 export default function Tech() {
     const [page,setPage] = useState(0)
@@ -33,6 +39,7 @@ export default function Tech() {
         }
     }
 
+
     const [type,setType] = useState('landscape')
     var [img,setImg] = useState('')
 
@@ -40,12 +47,29 @@ export default function Tech() {
         const handleResize = () => {
           if (window.innerWidth >= 1024) {
             setType('portrait');
-            setImg(datas.technology[page].images[type]);
           } else {
             setType('landscape');
-            setImg(datas.technology[page].images[type]);
           }
         };
+
+        const setImage = () => {
+            switch (page) {
+                case 0:
+                    setImg(type === 'portrait' ? vehicleportrait : vehiclelandscape);
+                    break;
+                case 1:
+                    setImg(type === 'portrait' ? spaceportportrait : spaceportlandscape);
+                    break;
+                case 2:
+                    setImg(type === 'portrait' ? capsuleportrait : capsulelandscape);
+                    break;
+                default:
+                    setImg('');
+                    break;
+            }
+        };
+
+        setImage();
         handleResize();
         window.addEventListener('resize', handleResize);
       
@@ -77,14 +101,14 @@ export default function Tech() {
                 <div className='flex flex-col pb-5 tablet:mt-40 mt-8'>
                     <p className='text-white desktop:ml-[165px] font-con tracking-[2.7px] tablet:tracking-[3.38px] desktop:tracking-[4.72px] mb-8 tablet:mb-[60px] tablet:text-[20px] desktop:text-[28px] max-desktop:text-center tablet:text-start tablet:ml-10 '> <span className='text-white/[0.25] font-semibold pr-[18px]'>03</span>SPACE LAUNCH 101</p>
                     <div className='desktop:flex desktop:flex-row-reverse desktop:justify-center' >
-                        <motion.img 
-                            key={datas.technology[page].name}
-                            variants={All}
-                            initial='initial'
-                            animate='in'
-                            src={img} 
-                            className=' h-[223px] tablet:w-full desktop:w-auto desktop:h-[527px] transition-all duration-1000'  
-                            alt={datas.technology[page].name} />
+                            <motion.img 
+                                key={datas.technology[page].name}
+                                variants={All}
+                                initial='initial'
+                                animate='in'
+                                src={img} 
+                                className=' h-[223px] max-desktop:w-full desktop:w-auto desktop:h-[527px] transition-all duration-1000'  
+                                alt={datas.technology[page].name} />
                         <div className='desktop:flex desktop:mt-[80px]  desktop:mr-[130px] ' >
                             <div className="flex desktop:flex-col mt-[34px] desktop:ml-[250px] mb-[26px] desktop:text-[32px] tablet:mb-[44px] tablet:mt-[56px]  desktop:mt-0 justify-center desktop:justify-start desktop:mr-20">
                                 <div onClick={launch} className={`flex hover:cursor-pointer desktop:w-20 desktop:h-20 justify-center items-center w-[40px] h-[40px] font-belle rounded-full ${page == 0 ? 'bg-white ' : 'text-white  border bg-transparent border-white/25  hover:border-white/90'}`}>1</div>

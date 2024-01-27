@@ -4,11 +4,15 @@ import {motion } from 'framer-motion'
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../components/icons/Logo';
+import moon from '../assets/destination/image-moon.png'
+import mars from '../assets/destination/image-mars.png'
+import europa from '../assets/destination/image-europa.png'
+import titan from '../assets/destination/image-titan.png'
+
 
 
 export default function Destination() {
     const [page,setPage] = useState(0)
-
     const pageVariants = {
         initial: { opacity: 0, x: -10 },
         in: { opacity: 1, x: 0, transition: { duration: 0.5 } },
@@ -19,7 +23,7 @@ export default function Destination() {
         initial: { opacity: 0, x: 0 },
         in: { opacity: 1, x: 0, transition: { duration: 0.2 } },
       };
-
+    
     function desti(e) {
         const textoBoton = e.target.textContent.trim();
         switch (textoBoton) {
@@ -28,6 +32,7 @@ export default function Destination() {
                 break;
             case 'EUROPA':
                 setPage(2)
+
                 break;
             case 'TITAN':
                 setPage(3)
@@ -37,6 +42,20 @@ export default function Destination() {
                 break;
         }
     }
+
+    function img() {
+        switch (page) {
+            case 1:
+                return mars
+            case 2:
+                return europa
+            case 3:
+                 return titan
+
+            default:
+                 return moon  
+        }
+     }
 
     return (
         <motion.div 
@@ -64,7 +83,7 @@ export default function Destination() {
                                     variants={All}
                                     initial='initial'
                                     animate='in'
-                                    src={datas.destinations[page].images.png} 
+                                    src={img()} 
                                     className='mb-[26px] desktop:mb-auto desktop:mt-auto tablet:mb-[53px] w-[150px] h-[150px] tablet:w-[300px]  tablet:h-[300px] desktop:w-[445px] desktop:h-[445px] desktop:mr-[157px] transition-all duration-1000'  
                                     alt={datas.destinations[page].name} />
                             </center>
